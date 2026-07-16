@@ -102,7 +102,7 @@ function HomePage() {
                   Explore destinations <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-sand-100 text-sand-50 hover:bg-sand-50/10 hover:text-sand-50">
+              <Button asChild size="lg" variant="outline" className="border-sand-100 bg-transparent text-sand-50 hover:bg-sand-50/10 hover:text-sand-50">
                 <Link to="/tours">View tours</Link>
               </Button>
             </div>
