@@ -13,6 +13,8 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
+import { FloatingWhatsApp } from "../components/FloatingWhatsApp";
+import { Toaster } from "../components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -79,27 +81,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Wanderlust Travels" },
-      { name: "description", content: "Curated travel experiences for the modern explorer. Discover hand-picked destinations, personalized tours, and unforgettable adventures." },
-      { name: "author", content: "Wanderlust Travels" },
-      { property: "og:title", content: "Wanderlust Travels" },
-      { property: "og:description", content: "Curated travel experiences for the modern explorer." },
+      { title: "Explore Istanbul — Premium 3 Nights / 4 Days Local Tour from the UK" },
+      { name: "description", content: "Discover Istanbul with local experts. 3 nights / 4 days premium package from £599 pp — hotel, breakfast, English-speaking guide, Bosphorus cruise, Old City, Princes Islands. Made for UK travellers." },
+      { name: "author", content: "Explore Istanbul" },
+      { name: "keywords", content: "Istanbul tour, Istanbul package, UK travellers Istanbul, English speaking guide Istanbul, Bosphorus cruise, Hagia Sophia tour, Princes Islands, private tour Istanbul" },
+      { property: "og:title", content: "Explore Istanbul — Premium Local Tour" },
+      { property: "og:description", content: "3 nights / 4 days premium Istanbul experience from £599 pp. Curated by English-speaking local experts for UK travellers." },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "en_GB" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@wanderlust" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&family=Epilogue:wght@400;500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap",
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "canonical", href: "/" },
     ],
   }),
   shellComponent: RootShell,
@@ -127,12 +128,14 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col">
+      <div className="flex min-h-screen flex-col bg-background">
         <Header />
         <main className="flex-1">
           <Outlet />
         </main>
         <Footer />
+        <FloatingWhatsApp />
+        <Toaster position="top-center" richColors />
       </div>
     </QueryClientProvider>
   );

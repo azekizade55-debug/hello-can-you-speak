@@ -1,127 +1,92 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
-import { Button } from "../components/ui/button";
-import { Input } from "../components/ui/input";
-import { Textarea } from "../components/ui/textarea";
-import { Label } from "../components/ui/label";
-import { Card, CardContent } from "../components/ui/card";
+import { Mail, MessageCircle, MapPin, Clock } from "lucide-react";
+import { SITE } from "@/lib/site";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Wanderlust Travels" },
-      { name: "description", content: "Get in touch with Wanderlust Travels to plan your next personalized journey." },
-      { property: "og:title", content: "Contact — Wanderlust Travels" },
-      { property: "og:description", content: "Get in touch to plan your next personalized journey." },
+      { title: "Contact — Explore Istanbul" },
+      { name: "description", content: "Get in touch with Explore Istanbul. WhatsApp, email and office location for your Istanbul tour enquiries." },
+      { property: "og:title", content: "Contact Explore Istanbul" },
+      { property: "og:description", content: "WhatsApp, email and office location for your Istanbul tour enquiries." },
     ],
   }),
   component: ContactPage,
 });
 
 function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
-
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setSubmitted(true);
-  }
-
   return (
-    <>
-      <section className="border-b border-border bg-secondary">
-        <div className="mx-auto max-w-7xl px-4 py-20 text-center sm:px-6 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-wider text-primary">Get in touch</p>
-          <h1 className="mt-3 font-display text-4xl font-bold text-foreground sm:text-5xl">Contact us</h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-            Have a destination in mind? Send us a message and we will craft a trip tailored just for you.
+    <section className="pt-28 pb-20 bg-navy-50/40 min-h-screen">
+      <div className="container-page">
+        <div className="max-w-2xl">
+          <div className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">Contact</div>
+          <h1 className="mt-3 font-display text-4xl md:text-5xl font-semibold text-navy-900">Let's plan your Istanbul story.</h1>
+          <p className="mt-4 text-muted-foreground">
+            The fastest way to reach our team is WhatsApp — usually a reply within 5 minutes during business hours.
           </p>
         </div>
-      </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-3">
-          <div className="space-y-6 lg:col-span-1">
-            <Card>
-              <CardContent className="flex items-start gap-4 p-6">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <Mail className="h-5 w-5" aria-hidden="true" />
-                </div>
-                <div>
-                  <h3 className="font-display font-semibold text-foreground">Email</h3>
-                  <p className="text-sm text-muted-foreground">hello@wanderlust.travel</p>
-                </div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="flex items-start gap-4 p-6">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <Phone className="h-5 w-5" aria-hidden="true" />
-                </div>
-                <div>
-                  <h3 className="font-display font-semibold text-foreground">Phone</h3>
-                  <p className="text-sm text-muted-foreground">+1 (555) 123-4567</p>
-                </div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="flex items-start gap-4 p-6">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <MapPin className="h-5 w-5" aria-hidden="true" />
-                </div>
-                <div>
-                  <h3 className="font-display font-semibold text-foreground">Office</h3>
-                  <p className="text-sm text-muted-foreground">123 Adventure Ave, Suite 400<br />New York, NY 10001</p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          <Card className="lg:col-span-2">
-            <CardContent className="p-6 sm:p-8">
-              {submitted ? (
-                <div className="py-12 text-center">
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <Send className="h-8 w-8" aria-hidden="true" />
-                  </div>
-                  <h2 className="mt-6 font-display text-2xl font-bold text-foreground">Message sent!</h2>
-                  <p className="mt-2 text-muted-foreground">
-                    Thank you for reaching out. Our travel specialists will get back to you within 24 hours.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid gap-5 sm:grid-cols-2">
-                    <div className="space-y-2">
-                      <Label htmlFor="firstName">First name</Label>
-                      <Input id="firstName" placeholder="Jane" required />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="lastName">Last name</Label>
-                      <Input id="lastName" placeholder="Doe" required />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="jane@example.com" required />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="destination">Dream destination</Label>
-                    <Input id="destination" placeholder="e.g. Santorini, Kyoto, Swiss Alps" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea id="message" rows={5} placeholder="Tell us about your ideal trip..." required />
-                  </div>
-                  <Button type="submit" className="w-full">
-                    Send message <Send className="ml-2 h-4 w-4" />
-                  </Button>
-                </form>
-              )}
-            </CardContent>
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <Card icon={MessageCircle} title="WhatsApp">
+            <p className="text-muted-foreground text-sm">Chat with a real human in seconds.</p>
+            <a
+              href={SITE.waLink()}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-4 inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-emerald-400"
+            >
+              {SITE.whatsappNumber}
+            </a>
+          </Card>
+          <Card icon={Mail} title="Email">
+            <p className="text-muted-foreground text-sm">For quotes, invoices and detailed enquiries.</p>
+            <a
+              href={`mailto:${SITE.email}`}
+              className="mt-4 inline-flex items-center gap-2 rounded-full border border-navy-200 px-5 py-2.5 text-sm font-semibold text-navy-900 hover:bg-white"
+            >
+              {SITE.email}
+            </a>
+          </Card>
+          <Card icon={Clock} title="Business hours">
+            <p className="text-sm text-navy-900 font-medium">{SITE.hours}</p>
+            <p className="mt-1 text-xs text-muted-foreground">Emergency WhatsApp support 24/7 during your trip.</p>
+          </Card>
+          <Card icon={MapPin} title="Office">
+            <p className="text-sm text-navy-900 font-medium">Sultanahmet, Istanbul, Türkiye</p>
+            <p className="mt-1 text-xs text-muted-foreground">Meet the team in person — by appointment.</p>
           </Card>
         </div>
-      </section>
-    </>
+
+        <div className="mt-8 overflow-hidden rounded-3xl border border-navy-100">
+          <iframe
+            title="Istanbul map"
+            src="https://www.google.com/maps?q=Sultanahmet%2C%20Istanbul&output=embed"
+            className="h-80 w-full"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Card({
+  icon: Icon,
+  title,
+  children,
+}: {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="rounded-2xl border border-navy-100 bg-white p-7">
+      <div className="grid h-11 w-11 place-items-center rounded-xl bg-gold-500/15 text-gold-600">
+        <Icon className="h-5 w-5" />
+      </div>
+      <h3 className="mt-5 font-display text-lg font-semibold text-navy-900">{title}</h3>
+      <div className="mt-2">{children}</div>
+    </div>
   );
 }
