@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import { SITE } from "@/lib/site";
+import { LEGAL_LINKS } from "@/components/LegalPage";
+
 
 export function Footer() {
   return (
@@ -59,20 +61,30 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-0.5 text-gold-400 shrink-0" />
-                <span>Sultanahmet, Istanbul, Türkiye</span>
+                <span>{SITE.address}</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-white/50">
-          <p>© {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
-          <div className="flex flex-wrap gap-4">
-            <Link to="/contact" className="hover:text-gold-400">Privacy Policy</Link>
-            <Link to="/contact" className="hover:text-gold-400">Terms &amp; Conditions</Link>
-            <Link to="/contact" className="hover:text-gold-400">Cancellation Policy</Link>
-          </div>
+        <div className="mt-12 border-t border-white/10 pt-8">
+          <h4 className="font-display text-base font-semibold text-white">Legal</h4>
+          <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            {LEGAL_LINKS.map((l) => (
+              <li key={l.to}>
+                <Link to={l.to} className="hover:text-gold-400">{l.label}</Link>
+              </li>
+            ))}
+          </ul>
         </div>
+
+        <div className="mt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-white/50">
+          <p>© {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
+          <p className="max-w-md md:text-right">
+            {SITE.name} is a trading name of {SITE.legalName}, {SITE.address}.
+          </p>
+        </div>
+
       </div>
     </footer>
   );
