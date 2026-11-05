@@ -17,8 +17,13 @@ import { SITE } from "@/lib/site";
 export const Route = createFileRoute("/_authenticated/admin")({
   head: () => ({
     meta: [
-      { title: "Admin Dashboard — Explore Istanbul" },
+      { title: "Admin Dashboard — TEOM TRAVEL" },
       { name: "robots", content: "noindex, nofollow" },
+      {name:"description",content:"Secure staff access to TEOM TRAVEL booking inquiries."},
+      {property:"og:title",content:"Admin Dashboard — TEOM TRAVEL"},
+      {property:"og:description",content:"Secure staff access to TEOM TRAVEL booking inquiries."},
+      {property:"og:type",content:"website"},
+      {name:"twitter:card",content:"summary_large_image"},
     ],
   }),
   component: AdminPage,
@@ -252,7 +257,7 @@ function BookingRow({
 }) {
   const [open, setOpen] = useState(false);
   const waNumber = (b.whatsapp || b.phone).replace(/\D/g, "");
-  const waMsg = `Hi ${b.first_name}, this is Explore Istanbul about your booking for ${b.travel_date}.`;
+  const waMsg = `Hi ${b.first_name}, this is TEOM TRAVEL about your booking for ${b.travel_date}.`;
   const waLink = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMsg)}`;
 
   const badge =

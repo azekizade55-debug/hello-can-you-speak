@@ -5,9 +5,9 @@ import { SITE } from "@/lib/site";
 export const Route = createFileRoute("/legal")({
   head: () => ({
     meta: [
-      { title: "Legal & Company Information — Explore Istanbul" },
-      { name: "description", content: "Company and website ownership information for Explore Istanbul, operated by GARANTI GRUP TURIZM OTOMOTIV GAYRIMENKUL INSAAT LTD STI." },
-      { property: "og:title", content: "Legal & Company Information — Explore Istanbul" },
+      { title: "Legal & Company Information — TEOM TRAVEL" },
+      { name: "description", content: "Company and website ownership information for TEOM TRAVEL, operated by GARANTI GRUP TURIZM OTOMOTIV GAYRIMENKUL INSAAT LTD STI." },
+      { property: "og:title", content: "Legal & Company Information — TEOM TRAVEL" },
       { property: "og:description", content: "Website ownership, company details and contact information." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

@@ -7,8 +7,13 @@ import { supabase } from "@/integrations/supabase/client";
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Admin Login — Explore Istanbul" },
+      { title: "Admin Login — TEOM TRAVEL" },
       { name: "robots", content: "noindex, nofollow" },
+      {name:"description",content:"Secure staff access to TEOM TRAVEL booking inquiries."},
+      {property:"og:title",content:"Admin Login — TEOM TRAVEL"},
+      {property:"og:description",content:"Secure staff access to TEOM TRAVEL booking inquiries."},
+      {property:"og:type",content:"website"},
+      {name:"twitter:card",content:"summary_large_image"},
     ],
   }),
   component: AuthPage,
@@ -61,7 +66,7 @@ function AuthPage() {
         <div className="mt-6 rounded-3xl border border-white/10 bg-white/[0.03] p-8">
           <h1 className="font-display text-3xl font-semibold">Admin access</h1>
           <p className="mt-2 text-sm text-white/60">
-            Sign in to manage bookings for Explore Istanbul.
+            Sign in to manage bookings for TEOM TRAVEL.
           </p>
 
           <form onSubmit={submit} className="mt-6 space-y-4">
