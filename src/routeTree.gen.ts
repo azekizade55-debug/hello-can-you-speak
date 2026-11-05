@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TurkiyeRouteImport } from './routes/turkiye'
+import { Route as ToursRouteImport } from './routes/tours'
 import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as MiddleEastRouteImport } from './routes/middle-east'
@@ -17,6 +18,7 @@ import { Route as MediterraneanCruisesRouteImport } from './routes/mediterranean
 import { Route as LegalRouteImport } from './routes/legal'
 import { Route as IstanbulExperiencesRouteImport } from './routes/istanbul-experiences'
 import { Route as GreeceGreekIslandsRouteImport } from './routes/greece-greek-islands'
+import { Route as CustomTripsRouteImport } from './routes/custom-trips'
 import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CancellationAndRefundPolicyRouteImport } from './routes/cancellation-and-refund-policy'
@@ -26,10 +28,16 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
+import { Route as ToursRegionDestinationRouteImport } from './routes/tours.$region.$destination'
 
 const TurkiyeRoute = TurkiyeRouteImport.update({
   id: '/turkiye',
   path: '/turkiye',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToursRoute = ToursRouteImport.update({
+  id: '/tours',
+  path: '/tours',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
@@ -65,6 +73,11 @@ const IstanbulExperiencesRoute = IstanbulExperiencesRouteImport.update({
 const GreeceGreekIslandsRoute = GreeceGreekIslandsRouteImport.update({
   id: '/greece-greek-islands',
   path: '/greece-greek-islands',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomTripsRoute = CustomTripsRouteImport.update({
+  id: '/custom-trips',
+  path: '/custom-trips',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CookiePolicyRoute = CookiePolicyRouteImport.update({
@@ -112,6 +125,11 @@ const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
   path: '/admin',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const ToursRegionDestinationRoute = ToursRegionDestinationRouteImport.update({
+  id: '/$region/$destination',
+  path: '/$region/$destination',
+  getParentRoute: () => ToursRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -121,6 +139,7 @@ export interface FileRoutesByFullPath {
   '/cancellation-and-refund-policy': typeof CancellationAndRefundPolicyRoute
   '/contact': typeof ContactRoute
   '/cookie-policy': typeof CookiePolicyRoute
+  '/custom-trips': typeof CustomTripsRoute
   '/greece-greek-islands': typeof GreeceGreekIslandsRoute
   '/istanbul-experiences': typeof IstanbulExperiencesRoute
   '/legal': typeof LegalRoute
@@ -128,8 +147,10 @@ export interface FileRoutesByFullPath {
   '/middle-east': typeof MiddleEastRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/tours': typeof ToursRouteWithChildren
   '/turkiye': typeof TurkiyeRoute
   '/admin': typeof AuthenticatedAdminRoute
+  '/tours/$region/$destination': typeof ToursRegionDestinationRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -139,6 +160,7 @@ export interface FileRoutesByTo {
   '/cancellation-and-refund-policy': typeof CancellationAndRefundPolicyRoute
   '/contact': typeof ContactRoute
   '/cookie-policy': typeof CookiePolicyRoute
+  '/custom-trips': typeof CustomTripsRoute
   '/greece-greek-islands': typeof GreeceGreekIslandsRoute
   '/istanbul-experiences': typeof IstanbulExperiencesRoute
   '/legal': typeof LegalRoute
@@ -146,8 +168,10 @@ export interface FileRoutesByTo {
   '/middle-east': typeof MiddleEastRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/tours': typeof ToursRouteWithChildren
   '/turkiye': typeof TurkiyeRoute
   '/admin': typeof AuthenticatedAdminRoute
+  '/tours/$region/$destination': typeof ToursRegionDestinationRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -159,6 +183,7 @@ export interface FileRoutesById {
   '/cancellation-and-refund-policy': typeof CancellationAndRefundPolicyRoute
   '/contact': typeof ContactRoute
   '/cookie-policy': typeof CookiePolicyRoute
+  '/custom-trips': typeof CustomTripsRoute
   '/greece-greek-islands': typeof GreeceGreekIslandsRoute
   '/istanbul-experiences': typeof IstanbulExperiencesRoute
   '/legal': typeof LegalRoute
@@ -166,8 +191,10 @@ export interface FileRoutesById {
   '/middle-east': typeof MiddleEastRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/tours': typeof ToursRouteWithChildren
   '/turkiye': typeof TurkiyeRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
+  '/tours/$region/$destination': typeof ToursRegionDestinationRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -179,6 +206,7 @@ export interface FileRouteTypes {
     | '/cancellation-and-refund-policy'
     | '/contact'
     | '/cookie-policy'
+    | '/custom-trips'
     | '/greece-greek-islands'
     | '/istanbul-experiences'
     | '/legal'
@@ -186,8 +214,10 @@ export interface FileRouteTypes {
     | '/middle-east'
     | '/privacy-policy'
     | '/terms-and-conditions'
+    | '/tours'
     | '/turkiye'
     | '/admin'
+    | '/tours/$region/$destination'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -197,6 +227,7 @@ export interface FileRouteTypes {
     | '/cancellation-and-refund-policy'
     | '/contact'
     | '/cookie-policy'
+    | '/custom-trips'
     | '/greece-greek-islands'
     | '/istanbul-experiences'
     | '/legal'
@@ -204,8 +235,10 @@ export interface FileRouteTypes {
     | '/middle-east'
     | '/privacy-policy'
     | '/terms-and-conditions'
+    | '/tours'
     | '/turkiye'
     | '/admin'
+    | '/tours/$region/$destination'
   id:
     | '__root__'
     | '/'
@@ -216,6 +249,7 @@ export interface FileRouteTypes {
     | '/cancellation-and-refund-policy'
     | '/contact'
     | '/cookie-policy'
+    | '/custom-trips'
     | '/greece-greek-islands'
     | '/istanbul-experiences'
     | '/legal'
@@ -223,8 +257,10 @@ export interface FileRouteTypes {
     | '/middle-east'
     | '/privacy-policy'
     | '/terms-and-conditions'
+    | '/tours'
     | '/turkiye'
     | '/_authenticated/admin'
+    | '/tours/$region/$destination'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -236,6 +272,7 @@ export interface RootRouteChildren {
   CancellationAndRefundPolicyRoute: typeof CancellationAndRefundPolicyRoute
   ContactRoute: typeof ContactRoute
   CookiePolicyRoute: typeof CookiePolicyRoute
+  CustomTripsRoute: typeof CustomTripsRoute
   GreeceGreekIslandsRoute: typeof GreeceGreekIslandsRoute
   IstanbulExperiencesRoute: typeof IstanbulExperiencesRoute
   LegalRoute: typeof LegalRoute
@@ -243,6 +280,7 @@ export interface RootRouteChildren {
   MiddleEastRoute: typeof MiddleEastRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
+  ToursRoute: typeof ToursRouteWithChildren
   TurkiyeRoute: typeof TurkiyeRoute
 }
 
@@ -253,6 +291,13 @@ declare module '@tanstack/react-router' {
       path: '/turkiye'
       fullPath: '/turkiye'
       preLoaderRoute: typeof TurkiyeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tours': {
+      id: '/tours'
+      path: '/tours'
+      fullPath: '/tours'
+      preLoaderRoute: typeof ToursRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/terms-and-conditions': {
@@ -302,6 +347,13 @@ declare module '@tanstack/react-router' {
       path: '/greece-greek-islands'
       fullPath: '/greece-greek-islands'
       preLoaderRoute: typeof GreeceGreekIslandsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/custom-trips': {
+      id: '/custom-trips'
+      path: '/custom-trips'
+      fullPath: '/custom-trips'
+      preLoaderRoute: typeof CustomTripsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cookie-policy': {
@@ -367,6 +419,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/tours/$region/$destination': {
+      id: '/tours/$region/$destination'
+      path: '/$region/$destination'
+      fullPath: '/tours/$region/$destination'
+      preLoaderRoute: typeof ToursRegionDestinationRouteImport
+      parentRoute: typeof ToursRoute
+    }
   }
 }
 
@@ -381,6 +440,16 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
 const AuthenticatedRouteRouteWithChildren =
   AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
 
+interface ToursRouteChildren {
+  ToursRegionDestinationRoute: typeof ToursRegionDestinationRoute
+}
+
+const ToursRouteChildren: ToursRouteChildren = {
+  ToursRegionDestinationRoute: ToursRegionDestinationRoute,
+}
+
+const ToursRouteWithChildren = ToursRoute._addFileChildren(ToursRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
@@ -390,6 +459,7 @@ const rootRouteChildren: RootRouteChildren = {
   CancellationAndRefundPolicyRoute: CancellationAndRefundPolicyRoute,
   ContactRoute: ContactRoute,
   CookiePolicyRoute: CookiePolicyRoute,
+  CustomTripsRoute: CustomTripsRoute,
   GreeceGreekIslandsRoute: GreeceGreekIslandsRoute,
   IstanbulExperiencesRoute: IstanbulExperiencesRoute,
   LegalRoute: LegalRoute,
@@ -397,6 +467,7 @@ const rootRouteChildren: RootRouteChildren = {
   MiddleEastRoute: MiddleEastRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   TermsAndConditionsRoute: TermsAndConditionsRoute,
+  ToursRoute: ToursRouteWithChildren,
   TurkiyeRoute: TurkiyeRoute,
 }
 export const routeTree = rootRouteImport
