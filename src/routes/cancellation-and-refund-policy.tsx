@@ -5,9 +5,9 @@ import { SITE } from "@/lib/site";
 export const Route = createFileRoute("/cancellation-and-refund-policy")({
   head: () => ({
     meta: [
-      { title: "Cancellation & Refund Policy — Explore Istanbul" },
+      { title: "Cancellation & Refund Policy — TEOM TRAVEL" },
       { name: "description", content: "How to cancel or change an Istanbul tour booking, cancellation deadlines, refund eligibility and no-show rules." },
-      { property: "og:title", content: "Cancellation & Refund Policy — Explore Istanbul" },
+      { property: "og:title", content: "Cancellation & Refund Policy — TEOM TRAVEL" },
       { property: "og:description", content: "Cancellation deadlines, refund eligibility, no-show and weather rules for our Istanbul tours." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

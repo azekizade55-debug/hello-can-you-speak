@@ -5,9 +5,9 @@ import { SITE } from "@/lib/site";
 export const Route = createFileRoute("/privacy-policy")({
   head: () => ({
     meta: [
-      { title: "Privacy Policy — Explore Istanbul" },
-      { name: "description", content: "How Explore Istanbul collects, uses, stores and protects the personal data of travellers booking Istanbul tours." },
-      { property: "og:title", content: "Privacy Policy — Explore Istanbul" },
+      { title: "Privacy Policy — TEOM TRAVEL" },
+      { name: "description", content: "How TEOM TRAVEL collects, uses, stores and protects the personal data of travellers planning international journeys." },
+      { property: "og:title", content: "Privacy Policy — TEOM TRAVEL" },
       { property: "og:description", content: "What data we collect when you book an Istanbul tour, how we use it and your rights." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

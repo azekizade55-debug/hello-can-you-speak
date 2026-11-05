@@ -5,10 +5,12 @@ import { SITE } from "@/lib/site";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Explore Istanbul" },
-      { name: "description", content: "Get in touch with Explore Istanbul. WhatsApp, email and office location for your Istanbul tour enquiries." },
-      { property: "og:title", content: "Contact Explore Istanbul" },
-      { property: "og:description", content: "WhatsApp, email and office location for your Istanbul tour enquiries." },
+      { title: "Contact — TEOM TRAVEL" },
+      { name: "description", content: "Get in touch with TEOM TRAVEL. WhatsApp, email and office location for your international travel enquiries." },
+      { property: "og:title", content: "Contact TEOM TRAVEL" },
+      { property: "og:description", content: "WhatsApp, email and office location for your international travel enquiries." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: ContactPage,
@@ -20,15 +22,15 @@ function ContactPage() {
       <div className="container-page">
         <div className="max-w-2xl">
           <div className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">Contact</div>
-          <h1 className="mt-3 font-display text-4xl md:text-5xl font-semibold text-navy-900">Let's plan your Istanbul story.</h1>
+          <h1 className="mt-3 font-display text-4xl md:text-5xl font-semibold text-navy-900">Let's plan your next journey.</h1>
           <p className="mt-4 text-muted-foreground">
-            The fastest way to reach our team is WhatsApp — usually a reply within 5 minutes during business hours.
+            Contact our team on WhatsApp or by email to discuss Türkiye, Greece, the Balkans, the Middle East or your own custom itinerary.
           </p>
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           <Card icon={MessageCircle} title="WhatsApp">
-            <p className="text-muted-foreground text-sm">Chat with a real human in seconds.</p>
+            <p className="text-muted-foreground text-sm">Talk to our team about your travel plans.</p>
             <a
               href={SITE.waLink()}
               target="_blank"
@@ -49,7 +51,7 @@ function ContactPage() {
           </Card>
           <Card icon={Clock} title="Business hours">
             <p className="text-sm text-navy-900 font-medium">{SITE.hours}</p>
-            <p className="mt-1 text-xs text-muted-foreground">Emergency WhatsApp support 24/7 during your trip.</p>
+            <p className="mt-1 text-xs text-muted-foreground">Contact us for personal travel assistance.</p>
           </Card>
           <Card icon={MapPin} title="Office">
             <p className="text-sm text-navy-900 font-medium">Sultanahmet, Istanbul, Türkiye</p>

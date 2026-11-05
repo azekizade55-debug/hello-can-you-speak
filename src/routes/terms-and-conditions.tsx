@@ -5,9 +5,9 @@ import { SITE } from "@/lib/site";
 export const Route = createFileRoute("/terms-and-conditions")({
   head: () => ({
     meta: [
-      { title: "Terms & Conditions — Explore Istanbul" },
-      { name: "description", content: "Terms and conditions for tours, excursions and travel services provided by Explore Istanbul in Istanbul, Türkiye." },
-      { property: "og:title", content: "Terms & Conditions — Explore Istanbul" },
+      { title: "Terms & Conditions — TEOM TRAVEL" },
+      { name: "description", content: "Terms and conditions for tours, excursions and travel services provided by TEOM TRAVEL." },
+      { property: "og:title", content: "Terms & Conditions — TEOM TRAVEL" },
       { property: "og:description", content: "Booking, payment, cancellation and liability terms for our Istanbul tours and experiences." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

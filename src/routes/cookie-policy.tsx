@@ -5,9 +5,9 @@ import { SITE } from "@/lib/site";
 export const Route = createFileRoute("/cookie-policy")({
   head: () => ({
     meta: [
-      { title: "Cookie Policy — Explore Istanbul" },
+      { title: "Cookie Policy — TEOM TRAVEL" },
       { name: "description", content: "Which cookies and similar technologies this Istanbul tour website uses, and how you can control them." },
-      { property: "og:title", content: "Cookie Policy — Explore Istanbul" },
+      { property: "og:title", content: "Cookie Policy — TEOM TRAVEL" },
       { property: "og:description", content: "Essential, analytics and third-party cookies used on our website and how to manage them." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

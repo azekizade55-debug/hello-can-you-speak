@@ -1,0 +1,5 @@
+import { createFileRoute } from '@tanstack/react-router';
+import { InquiryForm } from '@/components/InquiryForm';
+import { travelHead } from '@/lib/travel';
+export const Route=createFileRoute('/custom-trips')({validateSearch:(s:Record<string,unknown>)=>({destination:typeof s.destination==='string'?s.destination:''}),head:()=>travelHead('Custom Travel Planning','Create a personalized trip to Türkiye, Greece, the Balkans, the Middle East or the Mediterranean with TEOM TRAVEL.'),component:CustomTrips});
+function CustomTrips(){const {destination}=Route.useSearch();return <section className="container-page pt-32 pb-20"><div className="mx-auto max-w-3xl"><p className="eyebrow text-gold-700">Custom travel planning</p><h1 className="mt-4 text-4xl md:text-5xl">YOUR JOURNEY, YOUR WAY.</h1><p className="mt-5 text-muted-foreground leading-relaxed">Looking for something different? Tell us where you want to go, how many days you have and what kind of experience you are looking for. Our team will help create a customized travel package for you.</p><InquiryForm destination={destination}/></div></section>}
