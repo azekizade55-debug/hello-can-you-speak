@@ -16,6 +16,8 @@
   --font-display: "Playfair Display", "Cormorant Garamond", serif;
   --font-body: "Inter", system-ui, sans-serif;
 
+  --color-on-dark: var(--on-dark);
+  --color-whatsapp: var(--whatsapp);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -54,6 +56,8 @@
 
 :root {
   --radius: 0.5rem;
+  --on-dark: oklch(1 0 0);
+  --whatsapp: oklch(0.57 0.16 155);
 
   /* Navy palette */
   --navy-50: oklch(0.97 0.012 250);
@@ -127,7 +131,7 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
   }
 }
 
@@ -164,3 +168,13 @@
 @utility animate-float-slow {
   animation: float-slow 3s ease-in-out infinite;
 }
+
+.eyebrow {font-family:var(--font-body);font-size:0.7rem;font-weight:600;letter-spacing:0;text-transform:uppercase;}
+.travel-cover {position:relative;display:flex;align-items:flex-end;min-height:520px;padding-top:110px;color:var(--on-dark);}
+.travel-cover>img {position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.travel-cover-shade {position:absolute;inset:0;background:linear-gradient(90deg,color-mix(in oklab,var(--navy-950) 80%,transparent),color-mix(in oklab,var(--navy-950) 20%,transparent));}
+.destination-name-card {border:1px solid var(--border);border-radius:8px;padding:28px;background:var(--card);}
+.travel-input {width:100%;border:1px solid var(--border);border-radius:6px;background:var(--background);padding:12px 14px;font-size:14px;color:var(--foreground);outline:none;}
+.travel-input:focus {border-color:var(--gold-500);box-shadow:0 0 0 2px color-mix(in oklab,var(--gold-500) 20%,transparent);}
+@media(max-width:767px){.travel-cover{min-height:490px;}.travel-cover h1{font-size:32px;}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important;}}
